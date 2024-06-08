@@ -23,6 +23,61 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            SetupGame();
+        }
+
+        private void SetupGame()
+        {
+            List<string> animalEmoji = new List<string>()
+            {
+                "🐈‍" , "🐈‍" ,
+                "🦓" , "🦓" ,
+                "🐴" , "🐴" ,
+                "🦏" , "🦏" ,
+                "🦛" , "🦛" ,
+                "🐫" , "🐫" ,
+                "🦙" , "🦙" ,
+                "🦘" , "🦘"
+            };
+            Random random = new Random();
+            foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
+            {
+
+
+
+                if (textBlock.Name != "timeTextBlock")
+                {
+                    textBlock.Visibility = Visibility.Visible;
+                    int index = random.Next(animalEmoji.Count);
+                    string nextemoji = animalEmoji[index];
+                    textBlock.Text = nextemoji;
+                    animalEmoji.RemoveAt(index);
+                }
+            }
+         
+        }
+        TextBlock lastTextBlockClicked;
+        bool findingMatch = false;
+        private void Text_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            if (findingMatch == false)
+            {
+                textBlock.Visibility = Visibility.Hidden;
+                lastTextBlockClicked = textBlock;
+                findingMatch = true;
+            }
+            else if (textBlock.Text == lastTextBlockClicked.Text)
+            {
+                textBlock.Visibility = Visibility.Hidden;
+                findingMatch = false;
+            }
+            else
+            {
+                lastTextBlockClicked.Visibility = Visibility.Visible;
+                findingMatch = false;
+            }
+            }
         }
     }
-}
+
