@@ -77,7 +77,8 @@ namespace WpfApp1
                 lastTextBlockClicked.Visibility = Visibility.Visible;
                 findingMatch = false;
             }
-            }
+
         }
     }
+}
 
