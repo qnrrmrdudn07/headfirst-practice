@@ -10,7 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+using System.Windows.Navigation;    
 using System.Windows.Shapes;
 
 namespace WpfApp1
@@ -60,6 +60,7 @@ namespace WpfApp1
         bool findingMatch = false;
         private void Text_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            
             TextBlock textBlock = sender as TextBlock;
             if (findingMatch == false)
             {
@@ -77,7 +78,7 @@ namespace WpfApp1
                 lastTextBlockClicked.Visibility = Visibility.Visible;
                 findingMatch = false;
             }
-
+            
         }
     }
 }
