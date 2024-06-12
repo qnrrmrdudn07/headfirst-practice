@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Channels;
-using System.Threading.Tasks;
 
 namespace WpfApp2
 {
     internal class CardPicker
     {
+        static readonly Random random = new();
+
         public static string[] PickSomeCards(int numberOfCards)
         {
             string[] pickedCards = new string[numberOfCards];
@@ -17,10 +13,10 @@ namespace WpfApp2
             {
                 pickedCards[i] = RandomValue() + " of " + RandomSuit();
 
-            }   
+            }
             return pickedCards;
         }
-        static Random random = new Random();
+
         private static string RandomSuit()
         {
             int value = random.Next(1, 5); // 1 ~ 4 중 하나를 받음
@@ -39,8 +35,5 @@ namespace WpfApp2
             if (value == 13) return "King";
             return value.ToString();
         }
-       
-
     }
-       
 }

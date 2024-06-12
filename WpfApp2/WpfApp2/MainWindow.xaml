@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Card Picker" Height="400" Width="800">
     <Grid HorizontalAlignment="Center" Width="800" Height="434" VerticalAlignment="Bottom">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,8 +17,10 @@
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,20,20,20">
             <Label Content="How many cards do you want" FontSize="20"/>
-            <Slider x:Name="numberOfCards"  AutoToolTipPlacement="TopLeft" Minimum="1" Maximum="6" TickPlacement="BottomRight" IsSnapToTickEnabled="True" Foreground="Black"/>
+            <Slider x:Name="numberOfCards"  AutoToolTipPlacement="TopLeft" Minimum="1" Maximum="100" TickPlacement="BottomRight" IsSnapToTickEnabled="True" Foreground="Black"/>
         </StackPanel>
+        <Button Content="Pick some cards" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="Auto" Height="Auto"  FontSize="20" Click="Button_Click"/>
+        <ListBox x:Name="listOfCards" Grid.Column="1"  FontSize="20" Margin="20,80,20,10" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
