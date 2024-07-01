@@ -28,7 +28,7 @@ namespace WpfApp1
 
         private void SetupGame()
         {
-            List<string> animalEmoji = new List<string>()
+            List<string> animalEmoji = new ()
             {
                 "🐈‍" , "🐈‍" ,
                 "🦓" , "🦓" ,
@@ -39,7 +39,7 @@ namespace WpfApp1
                 "🦙" , "🦙" ,
                 "🦘" , "🦘"
             };
-            Random random = new Random();
+            Random random = new();
             foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
 
@@ -60,25 +60,27 @@ namespace WpfApp1
         bool findingMatch = false;
         private void Text_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
-            TextBlock textBlock = sender as TextBlock;
-            if (findingMatch == false)
+            if (sender != null)
             {
-                textBlock.Visibility = Visibility.Hidden;
-                lastTextBlockClicked = textBlock;
-                findingMatch = true;
+                TextBlock? textBlock = sender as TextBlock;
+                if (findingMatch == false)
+                {
+                    textBlock.Visibility = Visibility.Hidden;
+                    lastTextBlockClicked = textBlock;
+                    findingMatch = true;
+                }
+                else if (textBlock.Text == lastTextBlockClicked.Text)
+                {
+                    textBlock.Visibility = Visibility.Hidden;
+                    findingMatch = false;
+                }
+                else
+                {
+                    lastTextBlockClicked.Visibility = Visibility.Visible;
+                    findingMatch = false;
+                }
+
             }
-            else if (textBlock.Text == lastTextBlockClicked.Text)
-            {
-                textBlock.Visibility = Visibility.Hidden;
-                findingMatch = false;
-            }
-            else
-            {
-                lastTextBlockClicked.Visibility = Visibility.Visible;
-                findingMatch = false;
-            }
-            
         }
     }
 }

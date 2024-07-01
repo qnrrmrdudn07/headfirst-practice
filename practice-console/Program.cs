@@ -4,7 +4,7 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main(string[] arg)
     {
 
         Console.Write("Enter the number of cards to pick: ");

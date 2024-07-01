@@ -20,7 +20,7 @@ namespace practice_console
             }   
             return pickedCards;
         }
-        static Random random = new Random();
+        static readonly Random random = new();
         private static string RandomSuit()
         {
             int value = random.Next(1, 5); // 1 ~ 4 중 하나를 받음
