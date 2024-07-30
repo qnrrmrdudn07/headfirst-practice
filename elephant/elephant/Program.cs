@@ -1,6 +1,6 @@
 ﻿using System;
 
-internal class Elephant
+ public class Elephant
 {
     public int EarSize;
     public string? Name;
@@ -35,6 +35,13 @@ internal class Elephant
                 llo = luc;
                 luc = tmp;
 
+
+            }
+            else if (input == '4')
+            {
+                llo = luc;
+                llo.EarSize = 4444;
+                llo.WhoAmI();
             }
             else
             {
